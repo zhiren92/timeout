@@ -32,6 +32,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'factory_girl_rails'
   gem 'pry'
+  gem 'did_you_mean'
 end
 
 group :development do
@@ -45,10 +46,8 @@ gem 'bcrypt'
 gem 'angular-rails-templates'
 gem 'active_model_serializers'
 gem 'angularjs-rails'
-gem 'bcrypt'
 gem 'bower-rails'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
