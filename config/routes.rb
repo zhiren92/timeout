@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-root 'home#index'
+root 'users#new'
+
+get '/home' => 'home#index'
+
+post '/login' => 'sessions#create'
+get '/login' => 'sessions#new'
+delete '/logout' => 'sessions#destroy'
 
 resources :users
 
