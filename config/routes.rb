@@ -9,9 +9,12 @@ get '/login' => 'sessions#new'
 delete '/logout' => 'sessions#destroy'
 
 resources :users
+resources :friendships, only:[:create, :destroy]
+resources :friendship_requests, only:[:create, :destroy]
 
 namespace :api, defaults:{format:"json"} do
   resources :users
+  resources :friendship_requests
 end
 
   # The priority is based upon order of creation: first created -> highest priority.

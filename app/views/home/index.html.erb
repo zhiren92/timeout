@@ -1,8 +1,17 @@
 <h1>home page</h1>
 
+<h4><%= current_user.name %> is logged in</h4>
+
 <h1>{{4+1}}</h1>
 
-<%= @users %>
+<div>
+  <ul>
+    <li ng-repeat="user in main.friendsList track by $index">{{user.name}} - {{user.id}} - <button ng-click="main.FRequests.makeRequest()">Request</button>
+    </li>
+  </ul>
+</div>
 
 
-<button><%= link_to "LOG OUT", logout_path, method: :delete %></button>
+<div>
+  <%= link_to "LOG OUT", logout_path, method: :delete %>
+</div>
