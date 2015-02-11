@@ -12,9 +12,11 @@ resources :users
 resources :friendships, only:[:create, :destroy]
 resources :friendship_requests, only:[:create, :destroy]
 
-namespace :api, defaults:{format:"json"} do
-  resources :users
-  resources :friendship_requests
+namespace :api, defaults:{format: :json} do
+  resources :users do
+    resources :friendship_requests
+    resources :friendships
+  end
 end
 
   # The priority is based upon order of creation: first created -> highest priority.

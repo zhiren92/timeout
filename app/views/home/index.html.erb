@@ -4,13 +4,22 @@
 
 <h1>{{4+1}}</h1>
 
+<h1>People you can be friends with</h1>
 <div>
   <ul>
-    <li ng-repeat="user in main.friendsList track by $index">{{user.name}} - {{user.id}} - <button ng-click="main.FRequests.makeRequest()">Request</button>
+    <li ng-repeat="user in main.friendsList track by $index">{{user.name}} - {{user.id}} - <button ng-click="main.FRequests.makeRequest(user.id, user.name)">Request</button>
     </li>
   </ul>
 </div>
 
+<h1>People you have requested to be friends with</h1>
+<div>
+  <ul>
+    <li ng-repeat="request in main.FRequests.requestsList track by $index">
+      {{request.friendee_name}} - <button ng-click="main.FRequests.cancelRequest()">Cancel</button>
+    </li>
+  </ul>
+</div>
 
 <div>
   <%= link_to "LOG OUT", logout_path, method: :delete %>

@@ -3,45 +3,53 @@
     .module('app')
     .factory('FRequestsFactory', FRequestsFactory);
 
-    FRequestsFactory.$inject = ['Resources','$http'];
+    FRequestsFactory.$inject = ['$resource','$http', 'ipCookie'];
 
-    function FRequestsFactory(Resources, $http){
+    function FRequestsFactory($resource, $http, ipCookie){
 
       var FRequests = function(){
         var self = this;
         var FRIEND_URL = "http://localhost:3000/api/users/"
-        var REQUEST_URL = "http://localhost:3000/api/friendship_requests/"
+        var REQUEST_URL = "http://localhost:3000/api/users/"+ ipCookie('id') +"/friendship_requests/"
+        var Requests = $resource(REQUEST_URL);
+        console.log(Requests.query())
+
 
         self.makeRequest = makeRequest;
+        self.requestsList = requestsList();
+        self.cancelRequest = cancelRequest;
 
-        function makeRequest(){
+        console.log(ipCookie('id'))
+        function makeRequest(id, name){
 
-          console.log("clicked")
 
-          $http
-            .get(FRIEND_URL)
-            .success(function(data, status, headers, config){
-              console.log(data[0].id)
           
-
+          var params = {friendee_id:id , user_id:ipCookie('id'), friendee_name:name};
+          console.log(params);
 
           $http
             .post(REQUEST_URL, params)
-            .success(function(data, status, headers, config){
-
-            })
-
-      });
-
+            .success(function(data, status, headers, config){   
+            
+       })
+      }
 
 
-// Closes FRequest function
-    }
+       function requestsList(){
+// Returns list of users you have requested to be friends with
+          return Requests.query();
+              
+      }
 
-// Closes Friendship Requests Factory
+       function cancelRequest(request, index){
+          $http
+           .
+       }
+// Closes FRequest function  
     };
     return FRequests;
+// Closes Friendship Requests Factory
 
-}
+};
 return FRequestsFactory;
 })();
