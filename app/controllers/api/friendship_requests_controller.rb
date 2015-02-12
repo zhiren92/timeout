@@ -23,14 +23,14 @@ module API
     end
 
     def destroy
-      request = FriendshipRequest.find(params:[:id])
+      request = FriendshipRequest.find(params[:id])
       request.destroy
       head 204
     end
 
     private
     def friendship_request_params
-      params.require(:friendship_request).permit(:friendee_id, :user_id, :friendee_name)
+      params.require(:friendship_request).permit(:friendee_id, :user_id, :friendee_name, :requester_name)
     end
   end
 end

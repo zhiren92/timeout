@@ -9,22 +9,22 @@
 
       var FRequests = function(){
         var self = this;
-        var FRIEND_URL = "http://localhost:3000/api/users/"
+
+        var USER_URL = "http://localhost:3000/api/users/"
         var REQUEST_URL = "http://localhost:3000/api/users/"+ ipCookie('id') +"/friendship_requests/"
+        
         var Requests = $resource(REQUEST_URL);
-        console.log(Requests.query())
-
-
-        self.makeRequest = makeRequest;
+        
         self.requestsList = requestsList();
-        self.cancelRequest = cancelRequest;
+        self.getInverseData = getInverseData();
+        self.inverseRequestsList = inverseRequestsList;
 
-        console.log(ipCookie('id'))
-        function makeRequest(id, name){
+
+        self.makeRequest = function(id, name){
 
 
           
-          var params = {friendee_id:id , user_id:ipCookie('id'), friendee_name:name};
+          var params = {friendee_id:id , user_id:ipCookie('id'), friendee_name:name, requester_name:ipCookie('name')};
           console.log(params);
 
           $http
@@ -41,9 +41,28 @@
               
       }
 
-       function cancelRequest(request, index){
+       self.cancelRequest = function(request, id){
           $http
-           .
+            .delete(REQUEST_URL + id);
+
+          self.requestsList.splice(self.requestsList.indexOf(request), 1);
+       }
+
+       var inverseRequestsList = function(data){
+          list = data.inverse_requested
+          self.inverse_request = list
+       
+       }
+
+       function getInverseData(){
+
+          $http
+            .get(USER_URL+ipCookie('id'))
+            .success(function(data, status){
+
+             inverseRequestsList(data);
+
+            })
        }
 // Closes FRequest function  
     };

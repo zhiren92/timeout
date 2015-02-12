@@ -4,9 +4,9 @@
     .module('app')
     .controller('MainController', MainController)
 
-  MainController.$inject = ['ipCookie', 'FRequestsFactory','$http', '$resource'];
+  MainController.$inject = ['ipCookie', 'FFactory', 'FRequestsFactory', '$http', '$resource'];
 
-  function MainController(ipCookie, FRequestsFactory, $http, $resource){
+  function MainController(ipCookie, FFactory, FRequestsFactory, $http, $resource){
 // capture for MainController
     var self = this;
 
@@ -15,10 +15,13 @@
       "http://localhost:3000/api/users/:id",
       {id:"@id"});
 
-    self.id = ipCookie('id');
+    
 
 // Friend Request Factory
     self.FRequests = new FRequestsFactory();
+
+// Friend Factory
+    self.Friends = new FFactory();    
 
 // Currently a list of all users
     self.friendsList = friendsList();

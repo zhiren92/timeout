@@ -1,7 +1,7 @@
 <h1>home page</h1>
 
 <h4><%= current_user.name %> is logged in</h4>
-
+<h4>current user id is <%= current_user.id %></h4>
 <h1>{{4+1}}</h1>
 
 <h1>People you can be friends with</h1>
@@ -12,14 +12,28 @@
   </ul>
 </div>
 
+
 <h1>People you have requested to be friends with</h1>
 <div>
   <ul>
-    <li ng-repeat="request in main.FRequests.requestsList track by $index">
-      {{request.friendee_name}} - <button ng-click="main.FRequests.cancelRequest()">Cancel</button>
+    <li ng-repeat="request in main.FRequests.requestsList">
+      {{request.friendee_name}}-{{request.requester_id}} - <button ng-click="main.FRequests.cancelRequest(request, request.id)">Cancel</button>
     </li>
   </ul>
 </div>
+
+
+<h1>People that requested to be friends with you</h1>
+<div>
+  <ul>
+    <li ng-repeat="invrequest in main.FRequests.inverse_request">
+      {{invrequest.requester_name}} - <button ng-click="main.Friends.acceptFriend(invrequest.requester_name, invrequest.user_id)">Accept</button>- <button>Decline</button>
+    </li>
+  </ul>
+</div>
+
+<h1>Your Friends</h1>
+<div></div>
 
 <div>
   <%= link_to "LOG OUT", logout_path, method: :delete %>

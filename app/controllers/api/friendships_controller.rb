@@ -3,24 +3,32 @@ module API
     protect_from_forgery with: :null_sessions
     respond_to :json
 
-    def create
-      friendship = current_user.friendships.build(friendship_params)
-      inverse_friendship = current_user.friendships.build(inverse_friendship_params)
+    def index
+      friendships = Friendship.all
 
-      if friendship.save && inverse_friendship.save
-        render json: request, status:201
+      respond_with friendships
+    end
+
+    def create
+      friendship = Friendship.new(friendship_params)
+      
+
+      if friendship.save 
+        render json: friendship, status: 201
       else
-        render json: {errors: friendship.errors}, status 422
+        # @error = {":error" => friendship.errors}
+        # render :json => @error, status 422
+        render status 422
       end       
     end
 
 
     private
     def friendship_params
-      params.require(:friendship).permit(:user_id, :friendee_id)
+      params.require(:friendship).permit(:user_id, :friendee_id, :user_name, :friendee_name)
     end
-    def inverse_friendship_params
-      params.require(:friendship).permit(:user_id, :friendee_id)
-    end
+    # def inverse_friendship_params
+    #   params.require(:friendship).permit(:user_id, :friendee_id)
+    # end
   end
 end

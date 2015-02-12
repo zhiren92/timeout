@@ -9,5 +9,8 @@ class ApplicationController < ActionController::Base
     {root: false}
   end
   
+  serialization_scope :view_context
+
+
 
 end
