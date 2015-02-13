@@ -6,9 +6,20 @@ class User < ActiveRecord::Base
   has_many :request_received, class_name: FriendshipRequest, foreign_key: :friendee_id
 
   has_many :friendships
-  has_many :friends, through: :friendships
+  # has_many :friends, through: :friendships
 
   
+  def friends
+    @friends_arr = []
+    current_user = User.where(id: self.id)
+    friends = current_user[0].friendships
+    friends.each do |f|
+      @friends_arr.push(f.friendee)
+    end
+   
+    @friends_arr
+  end
+
 
 
 # this defines all possible friends

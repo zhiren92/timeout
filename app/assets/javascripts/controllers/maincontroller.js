@@ -13,7 +13,13 @@
 // call to retreive all Users data
     var Friends = $resource(
       "http://localhost:3000/api/users/:id",
-      {id:"@id"});
+      {id:"@id"},
+      {not_friends:{method:'GET', 
+                    isArray:true,
+                    params:{user_id:ipCookie('id')}, 
+                    url:'http://localhost:3000/api/users/not_friends',
+                  }
+                });
 
     
 
@@ -31,7 +37,7 @@
 
 // returns the list of Users currently
     function friendsList(){
-      return Friends.query();
+      return Friends.not_friends();
     }
 
     

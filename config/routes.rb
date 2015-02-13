@@ -8,13 +8,15 @@ post '/login' => 'sessions#create'
 get '/login' => 'sessions#new'
 delete '/logout' => 'sessions#destroy'
 
+
+
 resources :users
 # resources :friendships, only:[:create, :destroy]
 # resources :friendship_requests, only:[:create, :destroy]
-
 namespace :api, defaults:{format: :json} do
-  
+ get 'users/not_friends' => 'users#not_friends'
   resources :users do
+
     resources :friendship_requests
     resources :friendships
 

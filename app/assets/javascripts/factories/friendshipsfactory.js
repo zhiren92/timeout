@@ -45,10 +45,10 @@
           self.acceptFriend = function(name, id){
 
             
-            var INV_FRIEND_URL = "http://localhost:3000/api/users/" + id + "/friendships"
+            // var INV_FRIEND_URL = "http://localhost:3000/api/users/" + id + "/friendships"
 
             var params ={friendee_id:id, user_id:ipCookie('id'), user_name:ipCookie('name'), friendee_name:name}
-            var inv_params = {friendee_id:ipCookie('id'), user_id:id, user_name:name, friendee_name:ipCookie('name')}
+            // var inv_params = {friendee_id:ipCookie('id'), user_id:id, user_name:name, friendee_name:ipCookie('name')}
 
 
 
@@ -57,11 +57,11 @@
               .success(function(data, status, headers, config){
 
               })            
-            $http
-              .post(INV_FRIEND_URL, inv_params)
-              .success(function(data, status, headers, config){
+          //   $http
+          //     .post(INV_FRIEND_URL, inv_params)
+          //     .success(function(data, status, headers, config){
 
-              })
+          //     })
           }
 
            self.declineFriend = function(id){
