@@ -13,11 +13,14 @@
         var USER_URL = "http://localhost:3000/api/users/"
         var REQUEST_URL = "http://localhost:3000/api/users/"+ ipCookie('id') +"/friendship_requests/"
         
+
         var Requests = $resource(REQUEST_URL);
         
         self.requestsList = requestsList();
         self.getInverseData = getInverseData();
         self.inverseRequestsList = inverseRequestsList;
+
+        
 
 
         self.makeRequest = function(id, name){
@@ -25,7 +28,7 @@
 
           
           var params = {friendee_id:id , user_id:ipCookie('id'), friendee_name:name, requester_name:ipCookie('name')};
-          console.log(params);
+          
 
           $http
             .post(REQUEST_URL, params)
@@ -48,9 +51,16 @@
           self.requestsList.splice(self.requestsList.indexOf(request), 1);
        }
 
+       self.declineRequest = function(request, id){
+          $http
+            .delete(REQUEST_URL + id);
+
+          self.inverse_request.splice(self.inverse_request.indexOf(request), 1)
+       }
+
        var inverseRequestsList = function(data){
-          list = data.inverse_requested
-          self.inverse_request = list
+          self.inverse_request = data.inverse_requested
+    
        
        }
 

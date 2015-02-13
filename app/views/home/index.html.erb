@@ -27,13 +27,19 @@
 <div>
   <ul>
     <li ng-repeat="invrequest in main.FRequests.inverse_request">
-      {{invrequest.requester_name}} - <button ng-click="main.Friends.acceptFriend(invrequest.requester_name, invrequest.user_id)">Accept</button>- <button>Decline</button>
+      {{invrequest.requester_name}} - <button ng-click="main.Friends.acceptFriend(invrequest.requester_name, invrequest.user_id);main.FRequests.declineRequest(request, invrequest.id)">Accept</button>- <button ng-click="main.FRequests.declineRequest(request, invrequest.id)">Decline</button>
     </li>
   </ul>
 </div>
 
 <h1>Your Friends</h1>
-<div></div>
+<div>
+  <ul>
+    <li ng-repeat="friend in main.Friends.friends">
+      {{friend.friendee_name}} - <button ng-click="main.Friends.unFriend(friend, friend.id, friend.friendee_id)">Unfriend</button>
+    </li>
+  </ul>
+</div>
 
 <div>
   <%= link_to "LOG OUT", logout_path, method: :delete %>

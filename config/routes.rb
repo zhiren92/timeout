@@ -8,16 +8,20 @@ post '/login' => 'sessions#create'
 get '/login' => 'sessions#new'
 delete '/logout' => 'sessions#destroy'
 
-resources :users
-resources :friendships, only:[:create, :destroy]
-resources :friendship_requests, only:[:create, :destroy]
+# resources :users
+# resources :friendships, only:[:create, :destroy]
+# resources :friendship_requests, only:[:create, :destroy]
 
 namespace :api, defaults:{format: :json} do
+  delete 'users/:user_id/friendships/:f_to_remove_id' => 'friendships#inv_delete'
   resources :users do
     resources :friendship_requests
     resources :friendships
+
+    
   end
 end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
