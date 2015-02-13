@@ -75,20 +75,20 @@
   
           }
             self.unFriend = function(friend, id, friendeeID){
-              var INV_FRD_URL = "http://localhost:3000/api/users/" + friendeeID + "/friendships/" + 
-              var params = {friendee_id:ipCookie('id') , user_id:friendeeID}
-              // $http
-              //   .delete(FRIEND_URL+id)
-              //   .success(function(){
-              //   })
-              console.log(INV_FRD_URL) 
-              console.log(params)             
-
+              // var INV_FRD_URL = "http://localhost:3000/api/users/" + friendeeID + "/friendships/" + 
+              // var params = {friendee_id:ipCookie('id') , user_id:friendeeID}
               $http
-                .delete(INV_FRD_URL, params)
+                .delete(FRIEND_URL+id)
                 .success(function(){
-                  console.log("SUCCESS")
                 })
+              // console.log(INV_FRD_URL) 
+              // console.log(params)             
+
+              // $http
+              //   .delete(INV_FRD_URL, params)
+              //   .success(function(){
+              //     console.log("SUCCESS")
+              //   })
 
 
               // self.friends.splice(self.friends.indexOf(friend), 1)
