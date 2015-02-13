@@ -27,7 +27,7 @@ module API
       current_user = User.find(params[:user_id])
       puts current_user
       puts current_user.friends
-      not_friends = User.where.not(id: current_user.friends.map(&:id).push(current_user.id))
+      not_friends = current_user.possible_friends
 
       respond_with not_friends
     end
