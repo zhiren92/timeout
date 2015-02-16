@@ -31,16 +31,15 @@
 
 // Currently a list of all users
     self.friendsList = friendsList();
-
+// Available Time Factory
+    self.Times = new TimeFactory();
     
-    
-
 // returns the list of Users currently
     function friendsList(){
       return Friends.not_friends();
     }
 
-    
+
 // closes main controller function
 }
 
