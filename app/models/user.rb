@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   has_many :pendingfriends, through: :friendship_requests
   has_many :request_made, class_name: FriendshipRequest
   has_many :request_received, class_name: FriendshipRequest, foreign_key: :friendee_id
-
   has_many :friendships
+
+  has_many :available_times
 
   
   def friends

@@ -4,9 +4,9 @@
     .module('app')
     .controller('MainController', MainController)
 
-  MainController.$inject = ['ipCookie', 'FFactory', 'FRequestsFactory', '$http', '$resource'];
+  MainController.$inject = ['ipCookie', 'FFactory', 'FRequestsFactory', '$http', '$resource', 'TimeFactory'];
 
-  function MainController(ipCookie, FFactory, FRequestsFactory, $http, $resource){
+  function MainController(ipCookie, FFactory, FRequestsFactory, $http, $resource, TimeFactory){
 // capture for MainController
     var self = this;
 
@@ -32,8 +32,8 @@
 // Currently a list of all users
     self.friendsList = friendsList();
 
-
-
+    
+    
 
 // returns the list of Users currently
     function friendsList(){

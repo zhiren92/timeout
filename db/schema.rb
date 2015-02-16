@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212043820) do
+ActiveRecord::Schema.define(version: 20150213234909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "available_times", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "available_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "available_times", ["user_id"], name: "index_available_times_on_user_id", using: :btree
 
   create_table "friendship_requests", force: true do |t|
     t.integer  "user_id"
