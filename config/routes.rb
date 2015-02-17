@@ -10,8 +10,9 @@ delete '/logout' => 'sessions#destroy'
 
 
 
-resources :users
-resources :available_times
+resources :users do
+  resources :available_times
+end
 # resources :friendships, only:[:create, :destroy]
 # resources :friendship_requests, only:[:create, :destroy]
 namespace :api, defaults:{format: :json} do
@@ -20,8 +21,6 @@ namespace :api, defaults:{format: :json} do
     resources :friendship_requests
     resources :friendships
     resources :available_times
-
-    
   end
 end
 

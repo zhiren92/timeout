@@ -14,7 +14,7 @@ module API
       start_time = AvailableTime.new(available_time_params)
 
       if start_time.save
-        render json: request, status:201
+        render json: start_time, status:201
       else
         render json: {errors: request.errors}, status: 422
       end
@@ -23,7 +23,7 @@ module API
 
     private
     def available_time_params
-      params.require(:available_time).permit(:user_id, :start_time)
+      params.require(:available_time).permit(:user_id, :start_time, :end_time)
     end
   end
 end

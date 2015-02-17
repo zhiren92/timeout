@@ -61,8 +61,8 @@
 
        var inverseRequestsList = function(data){
           self.inverse_request = data.inverse_requested
-    
-       
+          
+
        }
 
        function getInverseData(){
