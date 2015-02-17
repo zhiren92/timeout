@@ -4,7 +4,6 @@ module API
     respond_to :json
 
     def index
-      # request = FriendshipRequest.all 
 
       user = User.find_by(id: params[:user_id])  
       

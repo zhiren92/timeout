@@ -16,8 +16,7 @@ resources :available_times
 # resources :friendship_requests, only:[:create, :destroy]
 namespace :api, defaults:{format: :json} do
  get 'users/not_friends' => 'users#not_friends'
-  resources :users do
-
+    resources :users do
     resources :friendship_requests
     resources :friendships
     resources :available_times

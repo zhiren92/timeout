@@ -1,13 +1,14 @@
 <h1>AVAILABLE TIME</h1>
 
 {{2+3}}
+<p>this user is logged in: <%= current_user.name %></p>
 
 <div class="container">
     <div class="row">
         <div class='col-sm-6'>
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
+                    <input type='text' class="form-control" id="time"/>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
@@ -16,10 +17,12 @@
        
         <script type="text/javascript">
             $(function () {
-                $('#datetimepicker1').datetimepicker();
+                $('#datetimepicker1').datetimepicker({
+                    format:'YYYY/MM/DD HH/mm'
+                });
             });
         </script>
     </div>
 </div>
 
-<button ng-click="main.Times.test()">TEST</button>
+<button ng-click="main.Times.startTime()">TEST</button>

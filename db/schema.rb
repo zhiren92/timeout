@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20150213234909) do
 
   create_table "available_times", force: true do |t|
     t.integer  "user_id"
-    t.datetime "available_time"
+    t.datetime "start_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

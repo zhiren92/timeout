@@ -42,7 +42,8 @@ end
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bootstrap_form'
 gem 'bcrypt'
-
+ruby '2.1.3'
+gem 'rails_12factor', group: :production
 gem 'angular-rails-templates'
 gem 'active_model_serializers'
 gem 'angularjs-rails'

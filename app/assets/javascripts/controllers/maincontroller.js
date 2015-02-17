@@ -10,6 +10,8 @@
 // capture for MainController
     var self = this;
 
+    
+
 // call to retreive all Users data
     var Friends = $resource(
       "http://localhost:3000/api/users/:id",
@@ -38,7 +40,6 @@
     function friendsList(){
       return Friends.not_friends();
     }
-
 
 // closes main controller function
 }

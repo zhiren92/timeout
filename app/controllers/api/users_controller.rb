@@ -10,7 +10,7 @@ module API
     end
 
     def show
-      user = User.find(params[:id])
+      user = User.find_by(id: params[:id])
 
       respond_with user
     end

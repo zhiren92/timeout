@@ -19,5 +19,5 @@
 //= require angular-rails-templates
 //= require moment
 //= require bootstrap-datetimepicker
+//= require templates
 //= require_tree .
-//= require_tree ./templates
