@@ -1,3 +1,3 @@
 class AvailableTimeSerializer < ActiveModel::Serializer
-  attributes :id, :start_time, :end_time
+  attributes :id,:user_id, :start_time, :end_time
 end

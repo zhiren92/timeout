@@ -3,6 +3,7 @@ class UserSerializer < ActiveModel::Serializer
 
   has_many :friendship_requests
   has_many :friendships
+  has_many :available_times
 
   delegate :current_user, :to => :scope
 

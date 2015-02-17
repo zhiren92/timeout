@@ -17,11 +17,12 @@ end
 # resources :friendship_requests, only:[:create, :destroy]
 namespace :api, defaults:{format: :json} do
  get 'users/not_friends' => 'users#not_friends'
+ get '/available_times' => 'available_times#index'
     resources :users do
-    resources :friendship_requests
-    resources :friendships
-    resources :available_times
-  end
+      resources :friendship_requests
+      resources :friendships
+      resources :available_times
+    end
 end
 
 
