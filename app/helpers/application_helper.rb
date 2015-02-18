@@ -3,7 +3,9 @@ module ApplicationHelper
   def get_range(time_obj)
     range_beg = time_obj.start_time
     range_end = time_obj.end_time
-    range = [range_beg, range_end]
+    user = time_obj.user.name
+
+    range = [range_beg, range_end, user]
   end
 
 # you can get the arr with multiple time ranges after inputting the total available_time arr
@@ -25,9 +27,11 @@ module ApplicationHelper
     overlap_end = [range1[1], range2[1]].min
 
     if (range1[0] >= range2[0] && range1[0] < range2[1]) || (range1[1] < range2[1] && range1[1] > range2[0])
-      return [overlap_start, overlap_end]
-    else 
-      return 
+      return [overlap_start, overlap_end, range1[2], range2[2]]
+    elsif (range1[0]>range2[0]&&range1[1]<range1[1]) 
+      return [range1[0], range1[1],range1[2], range2[2]]
+    else
+      return [range2[0], range2[1],range1[2], range2[2]]
     end
   end
 
@@ -45,7 +49,4 @@ module ApplicationHelper
     overlap_arr
   end
 
-  def test(arr1, arr2)
-    arr = "#{arr1} and #{arr2}"
-  end
 end
