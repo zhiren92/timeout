@@ -1,6 +1,4 @@
-(function(){
-
-  angular
+angular
     .module('app')
     .controller('MainController', MainController)
 
@@ -44,4 +42,3 @@ MainController.$inject = ['ipCookie', 'FFactory', 'FRequestsFactory', '$http', '
 // closes main controller function
 }
 
-})();

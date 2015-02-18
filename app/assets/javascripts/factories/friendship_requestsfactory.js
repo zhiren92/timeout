@@ -1,4 +1,4 @@
-(function(){
+
   angular
     .module('app')
     .factory('FRequestsFactory', FRequestsFactory);
@@ -82,4 +82,3 @@ FRequestsFactory.$inject = ['$resource','$http', 'ipCookie'];
 
 };
 return FRequestsFactory;
-})();

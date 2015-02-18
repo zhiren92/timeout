@@ -1,8 +1,7 @@
-(function(){
-  angular.module("app")
+angular.module("app")
     .factory("TimeFactory", TimeFactory)
 
-  TimeFactory.$inject= ["$http", "ipCookie"]
+TimeFactory.$inject= ["$http", "ipCookie"]
 
   function TimeFactory($http,ipCookie){
     var Time = function(){
@@ -68,4 +67,3 @@
 return Time;
   }
 return TimeFactory;
-})();

@@ -1,6 +1,6 @@
 angular.module('ivpusic.cookie', ['ipCookie']);
-angular.module('ipCookie', ['ng']).
-factory('ipCookie', ['$document',
+angular.module('ipCookie', ['ng'])
+.factory('ipCookie', ['$document',
   function ($document) {
     'use strict';
       

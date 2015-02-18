@@ -1,6 +1,4 @@
-(function(){
-
-  angular
+angular
     .module("app")
     .factory("Resources", Resources);
 
@@ -28,4 +26,3 @@ Resources.$inject=['$resource', "ipCookie"];
 
       return Resource;
     }
-})();
