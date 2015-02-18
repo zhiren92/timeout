@@ -24,8 +24,8 @@
         $http
           .post(TIME_URL, params)
           .success(function(response){
-            console.log("success");
-            console.log(response)
+            // console.log("success");
+            // console.log(response)
           })
 
     
@@ -47,7 +47,7 @@
 
         self.start_times = startArr;
         self.end_times = endArr;
-        console.log(self.start_times)
+        // console.log(self.start_times)
       }
 
       function getAvailableTimeData(){
