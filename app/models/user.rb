@@ -68,4 +68,17 @@ class User < ActiveRecord::Base
     super(:except => [:password_digest, :created_at, :updated_at])
   end
 
+# returns array of all your friends available_times as an array
+  def friends_available_times
+    times_arr = []
+    current_user = User.where(id: self.id)
+    # arr of friends
+    friends_arr = self.friends
+
+    for i in 0...friends_arr.length
+      times_arr.push(friends_arr[i].available_times)
+    end
+
+    times_arr[0]
+  end
 end
