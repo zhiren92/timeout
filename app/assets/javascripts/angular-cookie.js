@@ -1,8 +1,6 @@
-angular.module('ivpusic.cookie', ['ipCookie']);
+// angular.module('ivpusic.cookie', ['ipCookie']);
 angular.module('ipCookie', ['ng'])
-.factory('ipCookie', ['$document',
-  function ($document) {
-    'use strict';
+.factory('ipCookie', ['$document', function ($document) {'use strict';
       
     function tryDecodeURIComponent(value) {
         try {
