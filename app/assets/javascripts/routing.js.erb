@@ -5,6 +5,9 @@ angular
 
 function config($routeProvider, $locationProvider, $httpProvider){
 
+    
+
+
       $routeProvider
 
       .when('/', {
@@ -19,6 +22,12 @@ function config($routeProvider, $locationProvider, $httpProvider){
         templateUrl: 'friends.html',
         controller: 'MainController',
         controllerAs: 'main'
+      })
+
+      .when('/users/:id',{
+        title:"Check who is available",
+        templateUrl: "show_time.html",
+
       })
 
       .when('/set_time',{
