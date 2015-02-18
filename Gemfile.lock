@@ -83,6 +83,9 @@ GEM
     momentjs-rails (2.9.0)
       railties (>= 3.1)
     multi_json (1.10.1)
+    ngannotate-rails (0.15.4)
+      execjs
+      rails (>= 3.1)
     pg (0.18.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -180,6 +183,7 @@ DEPENDENCIES
   factory_girl_rails
   jquery-rails
   momentjs-rails (>= 2.9.0)
+  ngannotate-rails
   pg
   pry
   quiet_assets
