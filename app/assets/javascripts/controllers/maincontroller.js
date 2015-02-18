@@ -4,7 +4,7 @@
     .module('app')
     .controller('MainController', MainController)
 
-  MainController.$inject = ['ipCookie', 'FFactory', 'FRequestsFactory', '$http', '$resource', 'TimeFactory'];
+MainController.$inject = ['ipCookie', 'FFactory', 'FRequestsFactory', '$http', '$resource', 'TimeFactory'];
 
   function MainController(ipCookie, FFactory, FRequestsFactory, $http, $resource, TimeFactory){
 // capture for MainController
