@@ -3,7 +3,7 @@
     .module('app')
     .factory('FRequestsFactory', FRequestsFactory);
 
-    FRequestsFactory.$inject = ['$resource','$http', 'ipCookie'];
+FRequestsFactory.$inject = ['$resource','$http', 'ipCookie'];
 
     function FRequestsFactory($resource, $http, ipCookie){
 

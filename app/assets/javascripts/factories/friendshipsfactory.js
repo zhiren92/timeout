@@ -4,7 +4,7 @@
     .module('app')
     .factory('FFactory', FFactory);
 
-    FFactory.$inject = ['$resource','$http','ipCookie'];
+FFactory.$inject = ['$resource','$http','ipCookie'];
 
     function FFactory($resource,$http,ipCookie){
 
