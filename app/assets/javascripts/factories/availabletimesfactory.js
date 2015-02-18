@@ -24,8 +24,11 @@
         $http
           .post(TIME_URL, params)
           .success(function(response){
-            // console.log("success");
-            // console.log(response)
+            console.log("success");
+            setTimeout(function(){
+              $(document.span).append('Availability Successful');
+            });
+          
           })
 
     

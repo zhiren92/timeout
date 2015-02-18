@@ -1,62 +1,6 @@
-<!-- start of navbar -->
-<nav class = "navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">TimeOut</a>
-    </div>
-  </div>
-</nav>
-<!-- end of navbar -->
+<%= render "shared/nav" %>
 
-<h1>home page</h1>
-<div ng-view></div>
-<h4><%= current_user.name %> is logged in</h4>
-<h4>current user id is <%= current_user.id %></h4>
-<h1>{{4+1}}</h1>
+<% if logged_in? %>
+  <div ng-view></div>
+<% end %>
 
-<h1>People you can be friends with</h1>
-<div>
-  <ul>
-    <li ng-repeat="user in main.friendsList track by $index">{{user.name}} - {{user.id}} - <button ng-click="main.FRequests.makeRequest(user.id, user.name)">Request</button>
-    </li>
-  </ul>
-</div>
- 
-
-<h1>People you have requested to be friends with</h1>
-<div>
-  <ul>
-    <li ng-repeat="request in main.FRequests.requestsList">
-      {{request.friendee_name}}-{{request.requester_id}} - <button ng-click="main.FRequests.cancelRequest(request, request.id)">Cancel</button>
-    </li>
-  </ul>
-</div>
-
-
-<h1>People that requested to be friends with you</h1>
-<div>
-  <ul>
-    <li ng-repeat="invrequest in main.FRequests.inverse_request">
-      {{invrequest.requester_name}} - <button ng-click="main.Friends.acceptFriend(invrequest.requester_name, invrequest.user_id);main.FRequests.declineRequest(request, invrequest.id)">Accept</button>- <button ng-click="main.FRequests.declineRequest(request, invrequest.id)">Decline</button>
-    </li>
-  </ul>
-</div>
-
-<h1>Your Friends</h1>
-<div>
-  <ul>
-    <li ng-repeat="friend in main.Friends.friends">
-      {{friend.friendee_name}} - <button ng-click="main.Friends.unFriend(friend, friend.id, friend.friendee_id)">Unfriend</button>
-    </li>
-  </ul>
-</div>
-
-<div>
-  <%= link_to "LOG OUT", logout_path, method: :delete %>
-</div>

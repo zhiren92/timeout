@@ -16,6 +16,20 @@
         controllerAs: 'main'
       })
 
+      .when('/friends', {
+        title: 'Friends',
+        templateUrl: 'friends.html',
+        controller: 'MainController',
+        controllerAs: 'main'
+      })
+
+      .when('/set_time',{
+        title: 'Set_Time',
+        templateUrl: 'set_time.html',
+        controller: 'MainController',
+        controllerAs: 'main'
+      })
+
       .otherwise({
         redirectTo: '/'
       });
