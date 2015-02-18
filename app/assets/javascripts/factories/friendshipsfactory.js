@@ -1,6 +1,4 @@
-angular
-    .module('app')
-    .factory('FFactory', FFactory);
+angular.module('app').factory('FFactory', FFactory);
 
 FFactory.$inject = ['$resource','$http','ipCookie'];
 
@@ -94,4 +92,4 @@ FFactory.$inject = ['$resource','$http','ipCookie'];
         };
         return Friends;
     };
-  return FFactory;
+  // return FFactory;

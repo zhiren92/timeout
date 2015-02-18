@@ -1,7 +1,4 @@
-
-  angular
-    .module('app')
-    .factory('FRequestsFactory', FRequestsFactory);
+angular.module('app').factory('FRequestsFactory', FRequestsFactory);
 
 FRequestsFactory.$inject = ['$resource','$http', 'ipCookie'];
 
@@ -81,4 +78,4 @@ FRequestsFactory.$inject = ['$resource','$http', 'ipCookie'];
 // Closes Friendship Requests Factory
 
 };
-return FRequestsFactory;
+// return FRequestsFactory;
