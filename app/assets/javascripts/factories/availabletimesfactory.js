@@ -14,6 +14,7 @@ TimeFactory.$inject= ["$http", "ipCookie"]
       self.availableTimesList = availableTimesList;
       self.overlapTimeList = overlapTimeList;
       self.getOverlapData = getOverlapData();
+      self.compareTime = compareTime;
 
       self.startTime = function(){ 
   // the value of the datetime selector start time
@@ -70,12 +71,14 @@ TimeFactory.$inject= ["$http", "ipCookie"]
       }
 
       var overlapTimeList = function(data){
-        // console.log(data.overlap_ranges);
+        // console.log(data.overlap_ranges)
+        // console.log(moment(data.overlap_ranges[0][0]).toDate());
+
         self.overlap_list = data.overlap_ranges
-        console.log(self.overlap_time);
 
+        // console.log(data)
 
-        
+        // console.log(data.overlap[0])
       }
 
       function getOverlapData(){
@@ -87,6 +90,45 @@ TimeFactory.$inject= ["$http", "ipCookie"]
             overlapTimeList(data);
           })
       }
+
+      self.compare = function(){
+        var clock = new Date($("#timer").val()).toISOString();
+
+        // console.log(clock);
+        $http
+          .get(USER_URL)
+          .success(function(data){
+           
+
+            self.intersect_times = compareTime(clock,data.overlap_ranges);
+            // console.log(clock)
+            // console.log(data.overlap_ranges)
+
+          })
+        
+      }
+
+      var compareTime = function(datetime, date_range_arr){
+        // console.log(date_range_arr);
+
+
+        var date_check_arr = [];
+        // console.log(date_check_arr);
+          for(var i=0;i<date_range_arr.length;i++){
+            // console.log(datetime>date_range_arr[i][0])
+            // console.log(datetime==date_range_arr[i][1])
+            if(datetime >= date_range_arr[i][0] && datetime < date_range_arr[i][1]){
+              date_check_arr.push(date_range_arr[i]);
+              // console.log(date_check_arr);
+            }
+
+          }
+        
+        return date_check_arr
+        
+      }
+
+      
     }
 return Time;
   }

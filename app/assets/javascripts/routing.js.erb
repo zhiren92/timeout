@@ -39,6 +39,13 @@ function config($routeProvider, $locationProvider, $httpProvider){
         controllerAs: 'main'
       })
 
+      .when('/yourtimes', {
+        title: 'Your Time',
+        templateUrl: 'yourtimes.html',
+        controller: 'MainController',
+        controllerAs: 'main'
+      })
+
       .otherwise({
         redirectTo: '/'
       });

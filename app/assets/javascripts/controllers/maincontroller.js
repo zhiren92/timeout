@@ -39,6 +39,8 @@ MainController.$inject = ['ipCookie', 'FFactory', 'FRequestsFactory', '$http', '
       return Friends.not_friends();
     }
 
+    // console.log(self.Times)
+    
 // closes main controller function
 }
 
