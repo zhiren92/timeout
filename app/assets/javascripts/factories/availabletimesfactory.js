@@ -8,8 +8,12 @@ TimeFactory.$inject= ["$http", "ipCookie"]
       var self =  this;
 
       var TIME_URL = "http://localhost:3000/api/users/"+ipCookie('id')+"/available_times";
+      var USER_URL = "http://localhost:3000/api/users/" + ipCookie('id');
+
       self.getAvailableTimeData = getAvailableTimeData();
       self.availableTimesList = availableTimesList;
+      self.overlapTimeList = overlapTimeList;
+      self.getOverlapData = getOverlapData();
 
       self.startTime = function(){ 
   // the value of the datetime selector start time
@@ -60,7 +64,27 @@ TimeFactory.$inject= ["$http", "ipCookie"]
 
             availableTimesList(data);
 
+
  
+          })
+      }
+
+      var overlapTimeList = function(data){
+        // console.log(data.overlap_ranges);
+        self.overlap_list = data.overlap_ranges
+        console.log(self.overlap_time);
+
+
+        
+      }
+
+      function getOverlapData(){
+      
+
+        $http
+          .get(USER_URL)
+          .success(function(data){
+            overlapTimeList(data);
           })
       }
     }

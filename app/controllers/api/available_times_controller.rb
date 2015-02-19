@@ -1,6 +1,8 @@
 module API
 
   class AvailableTimesController < ApplicationController
+
+
     protect_from_forgery with: :null_sessions
     respond_to :json
 

@@ -24,9 +24,11 @@ function config($routeProvider, $locationProvider, $httpProvider){
         controllerAs: 'main'
       })
 
-      .when('/users/:id',{
-        title:"Check who is available",
-        templateUrl: "show_time.html",
+      .when('/whoisfree', {
+        title: 'Check who is available',
+        templateUrl: 'whoisfree.html',
+        controller: 'MainController',
+        controllerAs: 'main'
 
       })
 
