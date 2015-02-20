@@ -11,11 +11,13 @@ module ApplicationHelper
 # you can get the arr with multiple time ranges after inputting the total available_time arr
 
   def get_range_arr(time_obj_arr)
-    range_arr=[]
-    for i in 0...time_obj_arr.length
-      range_arr.push(get_range(time_obj_arr[i]))
+    if time_obj_arr
+      range_arr=[]
+      for i in 0...time_obj_arr.length
+        range_arr.push(get_range(time_obj_arr[i]))
+      end
+      range_arr
     end
-    range_arr
   end
 
 # this checks if a time range over laps
