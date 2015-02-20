@@ -1,9 +1,14 @@
 <h1>Your Available Slots!</h1>
 
-<div>
+<div class="col-md-6">
+
   <ul>
     <li ng-repeat="time in main.Times.personal_time">
       <h3>{{time[0]|date:'medium'}} to {{time[1]|date:'medium'}}</h3>
     </li>
   </ul>
+</div>
+
+<div ng-controller="d3Controller as d3"class = "col-md-6">
+  <div id = "self_time"></div>
 </div>

@@ -42,7 +42,7 @@ TimeFactory.$inject= ["$http", "ipCookie"]
       var availableTimesList = function(data){
         var available_arr = [];
         
-        console.log(data);
+        // console.log(data);
 
         for(var i=0; i<data.available_times.length; i++){
           available_arr.push([data.available_times[i].start_time, data.available_times[i].end_time]);
@@ -107,7 +107,7 @@ TimeFactory.$inject= ["$http", "ipCookie"]
       }
 
       var compareTime = function(datetime, date_range_arr){
-        // console.log(date_range_arr);
+        
 
 
         var date_check_arr = [];
