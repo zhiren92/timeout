@@ -40,27 +40,25 @@ TimeFactory.$inject= ["$http", "ipCookie"]
         }   
 
       var availableTimesList = function(data){
-        var startArr = [];
-        var endArr = [];
-        for(var i=0; i<data.length; i++){
-          var d = new Date(data[i].start_time)
-          var e = new Date(data[i].end_time)
-          startArr.push(d)
-          endArr.push(e)
+        var available_arr = [];
+        
+        console.log(data);
+
+        for(var i=0; i<data.available_times.length; i++){
+          available_arr.push([data.available_times[i].start_time, data.available_times[i].end_time]);
+    
 
         }
+        
+        self.personal_time = available_arr
 
 
-
-        self.start_times = startArr;
-        self.end_times = endArr;
-        // console.log(self.start_times)
       }
 
       function getAvailableTimeData(){
 
         $http
-          .get(TIME_URL)
+          .get(USER_URL)
           .success(function(data){
 
             availableTimesList(data);
@@ -101,7 +99,7 @@ TimeFactory.$inject= ["$http", "ipCookie"]
            
 
             self.intersect_times = compareTime(clock,data.overlap_ranges);
-            // console.log(clock)
+            // console.log(clock) 
             // console.log(data.overlap_ranges)
 
           })

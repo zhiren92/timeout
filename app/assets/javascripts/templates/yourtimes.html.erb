@@ -1,2 +1,9 @@
 <h1>Your Available Slots!</h1>
 
+<div>
+  <ul>
+    <li ng-repeat="time in main.Times.personal_time">
+      <h3>{{time[0]|date:'medium'}} to {{time[1]|date:'medium'}}</h3>
+    </li>
+  </ul>
+</div>

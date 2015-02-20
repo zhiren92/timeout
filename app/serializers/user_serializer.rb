@@ -23,4 +23,5 @@ class UserSerializer < ActiveModel::Serializer
 
     available_time_overlap(own_time_range, friends_time_range)
   end
+
 end
