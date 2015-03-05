@@ -12,7 +12,14 @@ function config($routeProvider, $locationProvider, $httpProvider){
 
       .when('/', {
         title: 'Hello',
-        templateUrl: 'profile.html',
+        templateUrl: 'home.html',
+        controller: 'MainController',
+        controllerAs: 'main'
+      })
+
+      .when('/profile', {
+        title: 'Profile',
+        templateUrl: 'show.html',
         controller: 'MainController',
         controllerAs: 'main'
       })
@@ -23,6 +30,7 @@ function config($routeProvider, $locationProvider, $httpProvider){
         controller: 'MainController',
         controllerAs: 'main'
       })
+
 
       .when('/whoisfree', {
         title: 'Check who is available',
@@ -39,12 +47,6 @@ function config($routeProvider, $locationProvider, $httpProvider){
         controllerAs: 'main'
       })
 
-      .when('/yourtimes', {
-        title: 'Your Time',
-        templateUrl: 'yourtimes.html',
-        controller: 'MainController',
-        controllerAs: 'main'
-      })
 
       .otherwise({
         redirectTo: '/'
