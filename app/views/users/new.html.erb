@@ -1,21 +1,23 @@
 <div>
   <h2>Sign up</h2>
   
-  <%= bootstrap_form_for :user,url: {:controller=>'users', :actions => "create"} do |f| %>
-    <%= f.text_field :name  %>
-    <%= f.email_field :email  %>
-    <%= f.password_field :password  %>
-    <%= f.password_field :password_confirmation  %>
-    <%= f.submit  %>
+  <%= bootstrap_form_for :user,url: {:controller=>'users', :actions => "create"}, label_errors: true do |f| %>
+    <%= f.alert_message "Please fix the errors below." %>
+    
+    <%= f.text_field :name, icon:"user"  %>
+    <%= f.email_field :email, icon:"envelope" %>
+    <%= f.password_field :password, help: "Must be at least 6 characters long" , icon:"lock"%>
+    <%= f.password_field :password_confirmation, help: "Must be at least 6 characters long" , icon:"lock"  %>
+    <%= f.submit "Sign up!" %>
   <% end %>
 </div>
 
 <div>
   <h2>Log in</h2>
   <%= bootstrap_form_for :session, url: :login do |f| %>
-    <%= f.text_field :email %>
-    <%= f.password_field :password %>
-    <%= f.submit "log in"%>
+    <%= f.text_field :email, icon:"envelope" %>
+    <%= f.password_field :password, icon:"lock"  %>
+    <%= f.submit "Log in" %>
   <% end %>
 </div>
 
