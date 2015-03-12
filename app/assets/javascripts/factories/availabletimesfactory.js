@@ -7,7 +7,7 @@ TimeFactory.$inject= ["$http", "ipCookie"]
     var Time = function(){
       var self =  this;
 
-      var TIME_URL = "http://localhost:3000/api/users/"+ipCookie('id')+"/available_times";
+      var TIME_URL = "http://localhost:3000/api/users/"+ipCookie('id')+"/available_times/";
       var USER_URL = "http://localhost:3000/api/users/" + ipCookie('id');
 
       self.getAvailableTimeData = getAvailableTimeData();
@@ -25,14 +25,14 @@ TimeFactory.$inject= ["$http", "ipCookie"]
         var params = {user_id:ipCookie('id'), start_time:start, end_time:end};
 
 
+
         $http
           .post(TIME_URL, params)
           .success(function(response){
             console.log("success");
-            setTimeout(function(){
-              $(document.span).append('Availability Successful');
-            });
+            document.getElementById('savemsg').style.display='block';
           
+            setTimeout(fade_out, 300);
           })
 
     
@@ -45,8 +45,8 @@ TimeFactory.$inject= ["$http", "ipCookie"]
         // console.log(data);
 
         for(var i=0; i<data.available_times.length; i++){
-          available_arr.push([data.available_times[i].start_time, data.available_times[i].end_time]);
-    
+          available_arr.push([data.available_times[i].start_time, data.available_times[i].end_time, data.available_times[i].id]);
+          
 
         }
         
@@ -106,6 +106,10 @@ TimeFactory.$inject= ["$http", "ipCookie"]
         
       }
 
+      var fade_out = function() {
+        $("#savemsg").fadeOut();
+      }
+
       var compareTime = function(datetime, date_range_arr){
         
 
@@ -126,6 +130,17 @@ TimeFactory.$inject= ["$http", "ipCookie"]
         
       }
 
+      self.deleteTime = function(time, id){
+        console.log(id)
+        $http
+          .delete(TIME_URL+id)
+          .success(function(){
+
+         
+          })
+          console.log(self.availableTimesList)
+         self.personal_time.splice(self.personal_time.indexOf(time), 1);
+      }
       
     }
 return Time;

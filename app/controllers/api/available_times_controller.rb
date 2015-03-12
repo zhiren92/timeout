@@ -22,7 +22,12 @@ module API
       end
     end
 
+    def destroy
+      time = AvailableTime.find(params[:id])
+      time.destroy
 
+      head 204
+    end
     private
     def available_time_params
       params.require(:available_time).permit(:user_id, :start_time, :end_time)

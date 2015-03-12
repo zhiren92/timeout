@@ -18,7 +18,7 @@ FRequestsFactory.$inject = ['$resource','$http', 'ipCookie'];
         self.inverseRequestsList = inverseRequestsList;
 
         
-
+        console.log(self.requestsList)
 
         self.makeRequest = function(id, name){
 
@@ -46,6 +46,7 @@ FRequestsFactory.$inject = ['$resource','$http', 'ipCookie'];
           $http
             .delete(REQUEST_URL + id);
 
+          console.log(self.requestsList)
           self.requestsList.splice(self.requestsList.indexOf(request), 1);
        }
 

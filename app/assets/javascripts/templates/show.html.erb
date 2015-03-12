@@ -4,8 +4,10 @@
 
   <ul>
     <li ng-repeat="time in main.Times.personal_time">
-      <h3>{{time[0]|date:'medium'}} to {{time[1]|date:'medium'}}</h3>
+      <h3>{{time[0]|date:'medium'}} to {{time[1]|date:'medium'}}</h3><button ng-click="main.Times.deleteTime(time, time[2])">Delete</button>
+
     </li>
+
   </ul>
 </div>
 

@@ -12,7 +12,7 @@
 <div>
   <ul>
     <li ng-repeat="request in main.FRequests.requestsList">
-      {{request.friendee_name}}-{{request.requester_id}} - <button ng-click="main.FRequests.cancelRequest(request, request.id)">Cancel</button>
+      {{request.friendee_name}}-<button ng-click="main.FRequests.cancelRequest(request, request.id)">Cancel</button>
     </li>
   </ul>
 </div>
