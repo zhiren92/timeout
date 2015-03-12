@@ -1,24 +1,86 @@
-<div>
-  <h2>Sign up</h2>
-  
-  <%= bootstrap_form_for :user,url: {:controller=>'users', :actions => "create"}, label_errors: true do |f| %>
-    <%= f.alert_message "Please fix the errors below." %>
-    
-    <%= f.text_field :name, icon:"user"  %>
-    <%= f.email_field :email, icon:"envelope" %>
-    <%= f.password_field :password, help: "Must be at least 6 characters long" , icon:"lock"%>
-    <%= f.password_field :password_confirmation, help: "Must be at least 6 characters long" , icon:"lock"  %>
-    <%= f.submit "Sign up!" %>
-  <% end %>
+
+<div class="jumbotron headerwrap">
+  <div class="container text-center">
+  <br>
+   <br>
+        <br>
+        <br> <br>
+        <br>
+        <br>
+    <h1>TIME OUT</h1>
+    <h3>Take some time out of your life</h3>
+    <div class="row">
+        <br>
+        <br>
+        <br>
+        <div class="col-lg-6 col-lg-offset-3">
+        </div>
+      </div>
+    <!-- Modal buttons -->
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signup">Sign Up</button>
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#login">Log In</button>
+  </div>
 </div>
 
-<div>
-  <h2>Log in</h2>
-  <%= bootstrap_form_for :session, url: :login do |f| %>
-    <%= f.text_field :email, icon:"envelope" %>
-    <%= f.password_field :password, icon:"lock"  %>
-    <%= f.submit "Log in" %>
-  <% end %>
+<div class="container w">
+    <div class="row centered">
+      <br><br>
+      <div class="col-lg-4">
+        <i class="fa fa-users"></i>
+        <h4>Friends</h4>
+        <p>People these days are so caught up with work and life in general, they forget to make time for friends. This app allows you to keep in touch with your friends and checkout when you guys are free.</p>
+      </div><!-- col-lg-4 -->
+
+      <div class="col-lg-4">
+        <i class="fa fa-laptop"></i>
+        <h4>SPA</h4>
+        <p>This page is a single page app that runs on api calls and templates. All the views are rendered at the same time after logging in and loading views are instantaneous</p>
+      </div><!-- col-lg-4 -->
+
+      <div class="col-lg-4">
+        <i class="fa fa-trophy"></i>
+        <h4>Cross Matching</h4>
+        <p>Many people find it a hassle to arrange times to meet up. All the trials and errors of when someone is free, or the pain of having to let someone else know you are free.</p>
+      </div><!-- col-lg-4 -->
+    </div><!-- row -->
+    <br>
+    <br>
+  </div><!-- container -->
+
+
+<!-- Sign up modal -->
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <h2>Sign up</h2>
+      
+      <%= bootstrap_form_for :user,url: {:controller=>'users', :actions => "create"}, label_errors: true do |f| %>
+        <%= f.alert_message "Please fix the errors below." %>
+        
+        <%= f.text_field :name, icon:"user"  %>
+        <%= f.email_field :email, icon:"envelope" %>
+        <%= f.password_field :password, help: "Must be at least 6 characters long" , icon:"lock"%>
+        <%= f.password_field :password_confirmation, help: "Must be at least 6 characters long" , icon:"lock"  %>
+        <%= f.submit "Sign up!" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <h2>Log in</h2>
+      <%= bootstrap_form_for :session, url: :login do |f| %>
+        <%= f.text_field :email, icon:"envelope" %>
+        <%= f.password_field :password, icon:"lock"  %>
+        <%= f.submit "Log in" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 
